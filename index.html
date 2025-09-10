@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <!-- Metadatos básicos para el navegador y SEO -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Página de fans de Gravity Falls, la misteriosa serie animada con estética de diario.">
+    <title>Gravity Falls</title>
+
+    <!-- Enlace a la hoja de estilos CSS -->
+    <link rel="stylesheet" href="css/estilos.css">
+
+    <!-- Enlace a Font Awesome para los íconos de redes sociales -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+
+    <!-- Header con logo y menú de navegación. Se repetirá en todas las páginas. -->
+    <header class="header-fondo">
+        <a href="index.html" class="logo-header">
+            <img src="img/gravity-falls-banner.webp" alt="Banner de Gravity Falls">
+        </a>
+        <nav class="menu" id="menu-principal">
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="trama.html">Trama</a></li>
+                <li><a href="personajes.html">Personajes</a></li>
+                <li><a href="galeria.html">Galería</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+            </ul>
+        </nav>
+        <button class="menu-hamburguesa" id="menu-hamburguesa-btn" aria-label="Abrir menú" aria-expanded="false" aria-controls="menu-principal">
+            <i class="fas fa-bars"></i>
+        </button>
+    </header>
+
+    <!-- Contenido principal específico de la página de inicio -->
+    <main>
+        <section class="introduccion">
+            <!-- Columna de texto con la descripción de la serie -->
+            <div class="texto">
+                <h1>Un Verano de Misterios</h1>
+                <p>Gravity Falls narra las aventuras de los mellizos de 12 años, <strong>Dipper y Mabel Pines</strong>, quienes son enviados a pasar sus vacaciones de verano con su tío abuelo Stan en el misterioso pueblo de <strong>Gravity Falls, Oregón</strong>.</p>
+                <p>El tío Stan regenta una curiosa trampa para turistas llamada <strong>“La Cabaña del Misterio”</strong>, un lugar repleto de rarezas, reliquias y objetos extravagantes que atraen visitantes de todas partes. Sin embargo, muy pronto los hermanos descubren que el pueblo guarda secretos mucho más inquietantes de lo que aparenta.</p>
+                <p>En una de sus primeras excursiones, Dipper encuentra un enigmático <strong>diario oculto</strong> en el bosque, lleno de anotaciones sobre criaturas sobrenaturales y fenómenos inexplicables. Con la ayuda de este diario, él y su hermana Mabel comienzan a explorar los misterios del pueblo, enfrentándose a gnomos, fantasmas, conspiraciones gubernamentales y hasta sociedades secretas que parecen vigilar cada uno de sus pasos.</p>
+                <p>Lo que comienza como simples aventuras se convierte en un viaje mucho más profundo, donde cada misterio está conectado con la historia de la <strong>familia Pines</strong> y el origen mismo de Gravity Falls. El verano se transforma así en una experiencia irrepetible que pondrá a prueba su valentía, su ingenio y, sobre todo, el vínculo inquebrantable entre hermanos.</p>
+                <p>Gracias a su mezcla de humor, intriga y un arco narrativo cuidadosamente construido, la serie no solo atrapó a los más jóvenes, sino que también conquistó a los adultos con su nivel de detalle y simbolismo oculto. Con el tiempo, Gravity Falls se consolidó como una <strong>serie de culto</strong>, dejando una huella duradera en quienes se adentraron en sus misterios.</p>
+            </div>
+
+            <div class="imagenes">
+                <img src="img/foto-principal.jpg" alt="Dipper y Mabel investigando el diario" onmouseover="this.src='img/foto-principal-corrompida.jpg'" onmouseout="this.src='img/foto-principal.jpg'">
+                <img src="img/cabana-del-misterio.webp" alt="La Cabaña del Misterio por fuera" onmouseover="this.src='img/cabana-del-misterio-corrompida.jpg'" onmouseout="this.src='img/cabana-del-misterio.webp'">
+                <img src="img/bill-cipher-rueda.webp" alt="El círculo de invocación de Bill Cipher" onmouseover="this.src='img/rueda-bill-cueva.jpg'" onmouseout="this.src='img/bill-cipher-rueda.webp'">
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Pie de página con redes sociales. Se repetirá en todas las páginas. -->
+<footer class="footer">
+    <div class="footer-container">
+        <div class="redes">
+            <a href="https://facebook.com" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://instagram.com" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="https://x.com" target="_blank" aria-label="X (antes Twitter)"><i class="fab fa-x-twitter"></i></a>
+            <a href="https://youtube.com" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+        </div>
+        <div class="legales">
+            <p>&copy; 2024 Gravity Falls Fan Site. Todos los derechos reservados.</p>
+        </div>
+    </div>
+</footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,54 @@
+/*
+=================================================================
+==                                                             ==
+==                 ESTILOS PARA LA PÁGINA DE TRAMA             ==
+==                                                             ==
+=================================================================
+*/
+
+.trama-pagina {
+    padding: 2rem;
+    max-width: 1545px;
+    position: relative; /* Necesario para posicionar elementos hijos de forma absoluta */
+    margin: 2rem auto;
+}
+
+/* Centramos el contenido de texto y le damos un ancho máximo */
+.trama-pagina .contenido-pagina {
+    max-width: 850px;
+    margin: 0 auto; /* Centra el bloque de texto */
+}
+
+/* Estilo base para las imágenes decorativas que estarán fuera del texto */
+.imagen-decorativa-trama {
+    position: absolute; /* Posicionamiento absoluto respecto a <main> */
+    display: none; /* Ocultas por defecto, las mostraremos en pantallas grandes */
+}
+
+.imagen-decorativa-trama img {
+    max-width: 200%;
+    height: auto;
+    border-radius: 8px;
+}
+
+/* Mostramos las imágenes solo en pantallas grandes */
+@media (min-width: 1200px) {
+    .imagen-decorativa-trama {
+        display: block; /* Muestra las imágenes */
+    }
+    #smebulock-img {
+        top: 150px; /* Distancia desde arriba */
+        left: 40px;  /* Distancia desde la izquierda del <main> */
+        width: 150px;
+    }
+    #garfio-img {
+        top: 150px;
+        right: 40px; /* Distancia desde la derecha del <main> */
+        width: 220px;
+    }
+    #dipper-esquina-img {
+        bottom: 20px;
+        right: 40px;
+        width: 180px;
+    }
+}

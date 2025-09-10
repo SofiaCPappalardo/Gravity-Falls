@@ -1,0 +1,176 @@
+/*
+=================================================================
+==                                                             ==
+==                ESTILOS PARA LA PÁGINA DE GALERÍA            ==
+==                                                             ==
+=================================================================
+*/
+
+.galeria-grid {
+    display: grid;
+    /* Crea columnas flexibles que tienen un mínimo de 300px y un máximo de 1fr (fracción del espacio disponible) */
+    /* auto-fit ajustará el número de columnas automáticamente según el ancho de la pantalla */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1rem; /* Espacio entre las imágenes */
+    margin-top: 2rem; /* Espacio después del título de la página */
+}
+
+.galeria-item {
+    overflow: hidden; /* Oculta cualquier parte de la imagen que se salga del contenedor */
+    border-radius: 8px;
+    border: 3px solid var(--color-tinta);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    aspect-ratio: 16 / 9; /* Mantiene una relación de aspecto 16:9 para las imágenes */
+}
+
+.galeria-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Escala la imagen para llenar el contenedor sin distorsionarla, recortando si es necesario */
+    transition: transform 0.4s ease, filter 0.4s ease;
+    filter: sepia(0.3);
+}
+
+.galeria-item img:hover {
+    transform: scale(1.1); /* Efecto de zoom al pasar el cursor */
+    filter: sepia(0);
+}
+
+/* --- Estilos para el Lightbox de la Galería --- */
+.lightbox {
+    display: none; /* Oculto por defecto */
+    position: fixed;
+    z-index: 2000; /* Por encima de todo lo demás */
+    padding-top: 60px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.9);
+}
+
+/* Cuando el lightbox está en modo zoom, permite el scroll para ver la imagen grande */
+.lightbox.zoomed {
+    padding-top: 0;
+    /* Habilita el scroll para poder moverse por la imagen ampliada */
+    overflow: auto;
+    /* Oculta el cursor estándar, ya que la imagen es "arrastrable" con el scroll */
+    cursor: grab;
+}
+
+/* Cursor que se muestra mientras el usuario está activamente arrastrando la imagen */
+.lightbox.zoomed.grabbing {
+    cursor: grabbing;
+}
+
+/* Oculta las flechas de navegación cuando la imagen está en modo zoom */
+.lightbox.zoomed .lightbox-prev,
+.lightbox.zoomed .lightbox-next {
+    display: none;
+}
+
+.lightbox.activo {
+    display: flex; /* Usamos flex para centrar vertical y horizontalmente */
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.lightbox-contenido {
+    margin: auto;
+    display: block;
+    max-width: 80%;
+    max-height: 80vh;
+    animation-name: zoom;
+    animation-duration: 0.6s;
+    transition: transform 0.3s ease; /* Añade una transición suave al hacer zoom */
+}
+
+/* Cuando el lightbox está en modo zoom, la imagen rompe sus límites y crece */
+.lightbox.zoomed .lightbox-contenido {
+    max-width: none; /* Elimina el límite de ancho */
+    max-height: none; /* Elimina el límite de alto */
+}
+
+@keyframes zoom {
+    from {transform: scale(0)}
+    to {transform: scale(1)}
+}
+
+.lightbox-cerrar {
+    position: fixed; /* Fijo para que no se desplace con el scroll del zoom */
+    top: 15px;
+    right: 35px;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+    cursor: pointer;
+    z-index: 2001; /* Asegura que esté sobre la imagen */
+}
+
+.lightbox-cerrar:hover,
+.lightbox-cerrar:focus {
+    color: #bbb;
+    text-decoration: none;
+}
+
+/* Botón de Zoom (Lupa) */
+.lightbox-zoom {
+    position: fixed; /* Fijo para que no se desplace con el scroll del zoom */
+    top: 15px;
+    right: 85px; /* Lo posicionamos a la izquierda del botón de cerrar */
+    color: #f1f1f1;
+    font-size: 28px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    transition: 0.3s;
+    z-index: 2001; /* Asegura que esté sobre la imagen */
+}
+.lightbox-zoom:hover {
+    color: #bbb;
+}
+
+.lightbox-caption {
+    margin: 15px auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+    text-align: center;
+    color: #ccc;
+    font-family: var(--fuente-manuscrita);
+    font-size: 1.2rem;
+}
+
+/* Flechas de navegación */
+.lightbox-prev, .lightbox-next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    padding: 16px;
+    margin-top: -50px;
+    color: white;
+    font-weight: bold;
+    font-size: 30px;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+    -webkit-user-select: none;
+}
+
+.lightbox-prev {
+    left: 0;
+}
+
+.lightbox-next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+}
+
+.lightbox-prev:hover,
+.lightbox-next:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
