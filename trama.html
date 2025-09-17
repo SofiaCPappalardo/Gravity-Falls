@@ -40,7 +40,7 @@
             <h1>La Trama de Gravity Falls</h1>
             <p>La historia de Gravity Falls se desarrolla a lo largo de un verano inolvidable, dividida en dos temporadas que, aunque conectadas, tienen un enfoque y un tono distintos. Juntas, tejen un misterio complejo y emocionante.</p>
             
-            <div class="acordeon-trama">
+            <div class="acordeon-trama" id="trama-acordeon">
                 <div class="acordeon-item">
                     <button class="acordeon-boton" aria-expanded="false">
                         Temporada 1: Descubriendo los Misterios (20 episodios)
@@ -65,12 +65,30 @@
             </div>
         </section>
 
-        <!-- Imagen decorativa de la esquina -->
-    </div>
+       
 
-</body>
+        <!-- Sección del Quiz Interactivo -->
+        <section class="quiz-section">
+            <div class="quiz-container">
+                <h2 class="quiz-title">¿Cuánto sabes de Gravity Falls?</h2>
+                <div class="quiz-start-screen" id="quiz-start-screen">
+                    <p>¡Pon a prueba tus conocimientos sobre los misterios de Gravity Falls!</p>
+                    <button id="start-quiz-btn" class="quiz-start-button">¡Empieza ahora!</button>
+                </div>
 
-</html>
+                <div class="quiz-game-area" id="quiz-game-area" style="display: none;">
+                    <div class="quiz-score-display">Puntaje: <span id="quiz-score">0</span></div>
+                    <div id="quiz-question-container" class="quiz-question-container">
+                        <!-- Las preguntas se cargarán aquí dinámicamente -->
+                    </div>
+                    <div id="quiz-result-screen" class="quiz-result-screen" style="display: none;">
+                        <h3>¡Cuestionario Completado!</h3>
+                        <p>Tu puntaje final es: <span id="final-score">0</span> de <span id="total-questions">0</span></p>
+                        <button id="restart-quiz-btn" class="quiz-start-button">Volver a Jugar</button>
+                    </div>
+                </div>
+            </div>
+        </section>
 
     </main>
 
@@ -90,6 +108,7 @@
 </footer>
     <script src="js/main.js"></script>
     <script src="js/trama.js"></script>
+    <script src="js/quiz.js"></script>
 </body>
 
 </html>

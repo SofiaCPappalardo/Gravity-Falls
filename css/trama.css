@@ -53,6 +53,170 @@
     }
 }
 
+/* --- Estilos para el Quiz Interactivo --- */
+.quiz-section {
+    margin-top: 3rem;
+    padding: 2rem;
+    background-color: rgba(199, 139, 34, 0.05); /* Fondo similar al acordeón */
+    border: 2px solid var(--color-cubierta);
+    border-radius: 4px;
+    max-width: 850px; /* Mismo ancho que el contenido principal */
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+.quiz-container {
+    padding: 1rem;
+}
+
+.quiz-title {
+    font-size: 2.5rem;
+    color: var(--color-resaltado);
+    margin-bottom: 1.5rem;
+}
+
+.quiz-start-screen p {
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+}
+
+.quiz-start-button {
+    background-color: var(--color-acento);
+    color: var(--color-tinta);
+    border: none;
+    padding: 15px 30px;
+    font-size: 1.3rem;
+    font-family: var(--fuente-titulos);
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.quiz-start-button:hover {
+    background-color: #e09e30; /* Un dorado ligeramente más claro */
+    transform: translateY(-2px);
+}
+
+.quiz-game-area {
+    position: relative; /* Para posicionar el puntaje */
+}
+
+.quiz-score-display {
+    position: absolute;
+    top: -1.5rem; /* Ajustar según sea necesario para que esté en la esquina superior */
+    right: 0;
+    background-color: var(--color-cubierta);
+    color: var(--color-papel);
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    font-family: var(--fuente-titulos);
+    font-size: 1.1rem;
+    z-index: 10; /* Asegurar que esté por encima de las preguntas */
+}
+
+.quiz-question-container {
+    margin-top: 2rem;
+    min-height: 200px; /* Para evitar saltos de diseño al cambiar de pregunta */
+    position: relative; /* Para las preguntas con fade */
+}
+
+.quiz-question {
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 1px dashed var(--color-tinta);
+    padding: 1.5rem;
+    border-radius: 8px;
+    margin-bottom: 1.5rem;
+    opacity: 1;
+    transition: opacity 0.5s ease-out;
+    position: absolute; /* Para que se superpongan y el fade funcione bien */
+    width: 100%;
+    left: 0;
+    top: 0;
+}
+
+.quiz-question.fade-out {
+    opacity: 0;
+    pointer-events: none; /* Deshabilita clics durante el fade out */
+}
+
+.quiz-question h3 {
+    font-family: var(--fuente-titulos);
+    font-size: 1.8rem;
+    color: var(--color-tinta);
+    margin-bottom: 1.5rem;
+}
+
+.quiz-options {
+    display: grid;
+    grid-template-columns: 1fr; /* Una columna por defecto */
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+@media (min-width: 600px) {
+    .quiz-options {
+        grid-template-columns: 1fr 1fr; /* Dos columnas en pantallas más grandes */
+    }
+}
+
+.quiz-option-button {
+    background-color: var(--color-papel);
+    color: var(--color-tinta);
+    border: 2px solid var(--color-tinta);
+    padding: 12px 20px;
+    font-size: 1.1rem;
+    font-family: var(--fuente-manuscrita);
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, border-color 0.3s ease, transform 0.2s ease;
+    text-align: left;
+}
+
+.quiz-option-button:hover {
+    background-color: var(--color-acento);
+    border-color: var(--color-acento);
+    color: var(--color-papel);
+    transform: translateY(-2px);
+}
+
+.quiz-option-button.correct {
+    background-color: #4CAF50; /* Verde */
+    border-color: #4CAF50;
+    color: white;
+}
+
+.quiz-option-button.incorrect {
+    background-color: #f44336; /* Rojo */
+    border-color: #f44336;
+    color: white;
+}
+
+.quiz-result-screen {
+    margin-top: 2rem;
+    padding: 2rem;
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 1px dashed var(--color-tinta);
+    border-radius: 8px;
+}
+
+.quiz-result-screen h3 {
+    font-family: var(--fuente-titulos);
+    font-size: 2rem;
+    color: var(--color-resaltado);
+    margin-bottom: 1rem;
+}
+
+.quiz-result-screen p {
+    font-size: 1.3rem;
+    margin-bottom: 1.5rem;
+}
+
+.quiz-result-screen span {
+    font-weight: bold;
+    color: var(--color-acento);
+}
+
 /* --- Estilos para el Acordeón de la Trama --- */
 .acordeon-trama {
     margin-top: 2rem;
