@@ -52,3 +52,69 @@
         width: 180px;
     }
 }
+
+/* --- Estilos para el Acordeón de la Trama --- */
+.acordeon-trama {
+    margin-top: 2rem;
+}
+
+.acordeon-item {
+    border: 2px solid var(--color-cubierta);
+    border-radius: 4px;
+    margin-bottom: 1rem;
+    overflow: hidden; /* Clave para la animación de max-height */
+    background-color: rgba(199, 139, 34, 0.05);
+}
+
+.acordeon-boton {
+    background-color: var(--color-cubierta);
+    color: var(--color-papel);
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 1.5rem;
+    font-family: var(--fuente-titulos);
+    transition: background-color 0.4s ease;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.acordeon-boton:hover, .acordeon-boton:focus {
+    background-color: #4a2d1f; /* Un marrón ligeramente más claro */
+}
+
+.acordeon-boton.activo {
+    background-color: var(--color-resaltado);
+}
+
+.acordeon-icono {
+    transition: transform 0.3s ease-in-out;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.acordeon-icono::before {
+    content: '\002B'; /* Signo '+' */
+    display: inline-block;
+}
+
+.acordeon-boton.activo .acordeon-icono {
+    transform: rotate(45deg);
+}
+
+.acordeon-contenido {
+    padding: 0 2rem;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+}
+
+.acordeon-contenido p {
+    padding: 1rem 0;
+    margin-bottom: 0; /* Anular margen por si acaso */
+    text-indent: 0; /* Quitamos la sangría para el texto del acordeón */
+}
