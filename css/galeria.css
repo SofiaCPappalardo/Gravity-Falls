@@ -6,6 +6,8 @@
 =================================================================
 */
 
+/* .contenido-pagina tiene estilos generales en estilos.css, aquí solo lo específico de la galería */
+
 .galeria-grid {
     display: grid;
     /* Crea columnas flexibles que tienen un mínimo de 300px y un máximo de 1fr (fracción del espacio disponible) */

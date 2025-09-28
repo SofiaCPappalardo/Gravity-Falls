@@ -5,9 +5,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const quizQuestionContainer = document.getElementById('quiz-question-container');
     const quizScoreDisplay = document.getElementById('quiz-score');
     const quizResultScreen = document.getElementById('quiz-result-screen');
-    const finalScoreSpan = document.getElementById('final-score');
-    const totalQuestionsSpan = document.getElementById('total-questions');
     const restartQuizBtn = document.getElementById('restart-quiz-btn');
+    const finalScoreDisplay = document.getElementById('final-score-display');
+    const correctAnswersDisplay = document.getElementById('correct-answers-display');
+    const totalQuestionsDisplay = document.getElementById('total-questions-display');
 
     const questions = [
         {
@@ -17,12 +18,12 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         {
             question: "¿Qué objeto encuentra Dipper en el bosque?",
-            options: ["Un mapa antiguo", "Un diario numerado", "Una brújula mágica", "Un amuleto brillante"],
-            correctAnswer: 1 // Index of "Un diario numerado"
+            options: ["Un mapa con mensajes UV", "Un dado de muchas caras", "Una computadora vieja" , "Un diario numerado"],
+            correctAnswer: 3 // Index of "Un diario numerado"
         },
         {
             question: "¿Cuál es el nombre del cerdo mascota de Mabel?",
-            options: ["Gordito", "Pato", "Chanchito", "Rosita"],
+            options: ["Gordito", "Pato", "Cerdito", "Waffles"],
             correctAnswer: 1 // Index of "Pato"
         },
         {
@@ -31,9 +32,34 @@ document.addEventListener('DOMContentLoaded', () => {
             correctAnswer: 2 // Index of "Bill Cipher"
         },
         {
-            question: "¿Cuántos dedos tiene el autor de los diarios en cada mano?",
-            options: ["Cinco", "Seis", "Cuatro", "Siete"],
-            correctAnswer: 1 // Index of "Seis"
+            question: "¿El pelo de qué criatura utilizan para protejer la cabaña?",
+            options: ["Unicornio","Gnomo" , "Multioso", "Hombretauro"],
+            correctAnswer: 0 // Index of "Unicornio"
+        },
+        {
+            question: "¿Qué objeto usan para viajar en el tiempo con Blendin Blandin?",
+            options: ["Un reloj de arena", "Una puerta del tiempo", "Un control del tiempo", "Una cinta metrica"],
+            correctAnswer: 3 // Index of "Una cinta metrica"
+        },
+        {
+            question: "¿Qué juego de mesa disfrutan jugar Dipper y Ford juntos?",
+            options: ["Calabozos y Dragones", "Calabozos, Calabozos y Más Calabozos", "Aventura en el Misterio", "Ogres y Oubliettes"],
+            correctAnswer: 1 // Index of "Calabozos, Calabozos y Más Calabozos"
+        },
+        {
+            question: "¿Qué apodo le pone Bill Cipher a Dipper?",
+            options: ["Cabeza de Pino", "Arbolito", "Niñito del Diario", "Estrella Fugaz"],
+            correctAnswer: 0 // Index of "Cabeza de Pino"
+        },
+        {
+            question: "¿Qué prenda le hacen usar los ancianos fantasma a Dipper para salvar a los amigos de Wendy en la tienda abandonada?",
+            options: ["Un sombrero de vaca", "Un disfraz de oveja", "Un pijama de unicornio", "Un disfraz de crema de maní"],
+            correctAnswer: 1 // Index of "Un disfraz de oveja"
+        },
+        {
+            question: "¿Cuantos kilos dijo Mabel que pesaba Pato para ganarlo en la feria?",
+            options: ["5kg", "6kg", "7kg", "8kg"],
+            correctAnswer: 2 // Index of "7kg"
         }
     ];
 
@@ -74,11 +100,11 @@ document.addEventListener('DOMContentLoaded', () => {
             if (previousQuestion) {
                 previousQuestion.classList.add('fade-out');
                 // Remove the previous question after its fade-out transition
-                previousQuestion.addEventListener('transitionend', () => {
+                setTimeout(() => {
                     previousQuestion.remove();
                     // Append the new question after the old one is removed
                     quizQuestionContainer.appendChild(questionElement);
-                }, { once: true });
+                }, 400); // Coincide con la duración de la transición en CSS
             } else {
                 // If it's the first question, just append it
                 quizQuestionContainer.appendChild(questionElement);
@@ -124,16 +150,23 @@ document.addEventListener('DOMContentLoaded', () => {
     function showResult() {
         quizGameArea.style.display = 'none';
         quizResultScreen.style.display = 'block';
-        finalScoreSpan.textContent = score;
-        totalQuestionsSpan.textContent = questions.length;
+        finalScoreDisplay.textContent = score;
+        correctAnswersDisplay.textContent = score;
+        totalQuestionsDisplay.textContent = questions.length;
     }
 
     function restartQuiz() {
+        // Oculta la pantalla de resultados y muestra la de inicio
         quizResultScreen.style.display = 'none';
         quizStartScreen.style.display = 'block';
         // Clear any lingering questions from previous game
         quizQuestionContainer.innerHTML = '';
-        startQuiz(); // Re-start the quiz
+        // Reset quiz state variables
+        currentQuestionIndex = 0;
+        score = 0;
+        updateScoreDisplay(); // Ensure score display is reset to 0
+        // El quizGameArea debería estar oculto por showResult()
+        // y se mostrará de nuevo cuando startQuiz() sea llamado.
     }
 
     // Event Listeners

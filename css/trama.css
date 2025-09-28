@@ -19,39 +19,9 @@
     margin: 0 auto; /* Centra el bloque de texto */
 }
 
-/* Estilo base para las imágenes decorativas que estarán fuera del texto */
-.imagen-decorativa-trama {
-    position: absolute; /* Posicionamiento absoluto respecto a <main> */
-    display: none; /* Ocultas por defecto, las mostraremos en pantallas grandes */
-}
 
-.imagen-decorativa-trama img {
-    max-width: 200%;
-    height: auto;
-    border-radius: 8px;
-}
 
-/* Mostramos las imágenes solo en pantallas grandes */
-@media (min-width: 1200px) {
-    .imagen-decorativa-trama {
-        display: block; /* Muestra las imágenes */
-    }
-    #smebulock-img {
-        top: 150px; /* Distancia desde arriba */
-        left: 40px;  /* Distancia desde la izquierda del <main> */
-        width: 150px;
-    }
-    #garfio-img {
-        top: 150px;
-        right: 40px; /* Distancia desde la derecha del <main> */
-        width: 220px;
-    }
-    #dipper-esquina-img {
-        bottom: 20px;
-        right: 40px;
-        width: 180px;
-    }
-}
+
 
 /* --- Estilos para el Quiz Interactivo --- */
 .quiz-section {
@@ -124,15 +94,11 @@
 .quiz-question {
     background-color: rgba(255, 255, 255, 0.1);
     border: 1px dashed var(--color-tinta);
-    padding: 1.5rem;
+    padding: 2rem;
     border-radius: 8px;
     margin-bottom: 1.5rem;
     opacity: 1;
-    transition: opacity 0.5s ease-out;
-    position: absolute; /* Para que se superpongan y el fade funcione bien */
-    width: 100%;
-    left: 0;
-    top: 0;
+    transition: opacity 0.4s ease-out;
 }
 
 .quiz-question.fade-out {
@@ -203,13 +169,18 @@
 .quiz-result-screen h3 {
     font-family: var(--fuente-titulos);
     font-size: 2rem;
-    color: var(--color-resaltado);
+    color: var(--color-rojo-oscuro);
     margin-bottom: 1rem;
 }
 
 .quiz-result-screen p {
     font-size: 1.3rem;
     margin-bottom: 1.5rem;
+}
+
+.final-score-text {
+    font-size: 1.5rem; /* Hacemos el texto del puntaje final un poco más grande */
+    font-weight: bold;
 }
 
 .quiz-result-screen span {
@@ -252,7 +223,7 @@
 }
 
 .acordeon-boton.activo {
-    background-color: var(--color-resaltado);
+    background-color: var( --color-rojo-oscuro);
 }
 
 .acordeon-icono {
@@ -278,6 +249,7 @@
 }
 
 .acordeon-contenido p {
+   
     padding: 1rem 0;
     margin-bottom: 0; /* Anular margen por si acaso */
     text-indent: 0; /* Quitamos la sangría para el texto del acordeón */
@@ -347,4 +319,28 @@
     padding: 1rem 0;
     margin-bottom: 0; /* Anular margen por si acaso */
     text-indent: 0; /* Quitamos la sangría para el texto del acordeón */
+}
+
+.lista-episodios {
+    padding: 1rem 1rem 1rem 3rem; /* Añade padding interno, especialmente a la izquierda para los números */
+    text-align: left;
+    list-style-type: decimal; /* Asegura que sea una lista numerada */
+}
+
+.lista-episodios li {
+    margin-bottom: 0.5rem; /* Espacio entre cada episodio */
+     font-size: 20PX;
+}
+
+.contenido-pagina h1{
+    text-align: center;
+    font-family: var(--fuente-titulos);
+    font-size: 2.6em;
+    color: var(--color-rojo-oscuro);
+    margin-bottom: 1.5rem;
+}
+
+.contenido-pagina p{
+    font-size: 1.4em;
+    text-indent: 10px; 
 }
