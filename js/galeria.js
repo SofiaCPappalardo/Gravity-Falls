@@ -11,33 +11,15 @@ document.addEventListener('DOMContentLoaded', () => {
     const lightboxImg = document.getElementById('lightbox-img');
     const lightboxCaption = document.getElementById('lightbox-caption');
     const cerrarBtn = document.getElementById('lightbox-cerrar');
-    const zoomBtn = document.getElementById('lightbox-zoom');
     const prevBtn = document.getElementById('lightbox-prev');
     const nextBtn = document.getElementById('lightbox-next');
 
     // Variables de estado
     let currentIndex = 0;
-    let isDragging = false;
-    let startX;
-    let startY;
-    let scrollLeft;
-    let scrollTop;
 
     // --- FUNCIONES ---
 
-    const resetZoom = () => {
-        lightbox.classList.remove('zoomed');
-        // Elimina los estilos de tamaño para que la imagen vuelva a ser controlada por CSS
-        lightboxImg.style.width = '';
-        lightboxImg.style.height = '';
-        const zoomIcon = zoomBtn.querySelector('i');
-        zoomIcon.classList.remove('fa-search-minus');
-        zoomIcon.classList.add('fa-search-plus');
-        zoomBtn.setAttribute('aria-label', 'Hacer zoom');
-    };
-
     const showImage = (index) => {
-        resetZoom();
         const item = galeriaItems[index];
         lightboxImg.src = item.src;
         lightboxCaption.innerHTML = item.alt;
@@ -51,29 +33,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const closeLightbox = () => {
         lightbox.classList.remove('activo');
-        resetZoom();
-    };
-
-    const toggleZoom = () => {
-        const isCurrentlyZoomed = lightbox.classList.contains('zoomed');
-
-        if (isCurrentlyZoomed) {
-            // Acción: Zoom Out. Resetea todo al estado inicial.
-            resetZoom();
-        } else {
-            // Acción: Zoom In.
-            lightbox.classList.add('zoomed');
-            
-            // Ajusta la imagen a su tamaño natural para verla al 100%
-            lightboxImg.style.width = `${lightboxImg.naturalWidth}px`;
-            lightboxImg.style.height = `${lightboxImg.naturalHeight}px`;
-
-            // Actualiza el ícono y el texto del botón
-            const zoomIcon = zoomBtn.querySelector('i');
-            zoomIcon.classList.add('fa-search-minus');
-            zoomIcon.classList.remove('fa-search-plus');
-            zoomBtn.setAttribute('aria-label', 'Quitar zoom');
-        }
     };
 
     const showNextImage = () => {
@@ -95,7 +54,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // 2. Controles del lightbox
     cerrarBtn.addEventListener('click', closeLightbox);
-    zoomBtn.addEventListener('click', toggleZoom);
     
     nextBtn.addEventListener('click', (e) => {
         e.stopPropagation();
@@ -118,36 +76,5 @@ document.addEventListener('DOMContentLoaded', () => {
         if (e.key === 'Escape') closeLightbox();
         if (e.key === 'ArrowRight') showNextImage();
         if (e.key === 'ArrowLeft') showPrevImage();
-    });
-
-    // 5. Paneo (arrastrar para mover)
-    lightbox.addEventListener('mousedown', (e) => {
-        if (!lightbox.classList.contains('zoomed') || e.target !== lightboxImg) return;
-        e.preventDefault();
-        isDragging = true;
-        lightbox.classList.add('grabbing');
-        startX = e.pageX;
-        startY = e.pageY;
-        scrollLeft = lightbox.scrollLeft;
-        scrollTop = lightbox.scrollTop;
-    });
-
-    lightbox.addEventListener('mouseleave', () => {
-        isDragging = false;
-        lightbox.classList.remove('grabbing');
-    });
-
-    lightbox.addEventListener('mouseup', () => {
-        isDragging = false;
-        lightbox.classList.remove('grabbing');
-    });
-
-    lightbox.addEventListener('mousemove', (e) => {
-        if (!isDragging) return;
-        e.preventDefault();
-        const walkX = e.pageX - startX;
-        const walkY = e.pageY - startY;
-        lightbox.scrollLeft = scrollLeft - walkX;
-        lightbox.scrollTop = scrollTop - walkY;
     });
 });

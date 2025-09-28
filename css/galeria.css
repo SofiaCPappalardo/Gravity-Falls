@@ -8,6 +8,17 @@
 
 /* .contenido-pagina tiene estilos generales en estilos.css, aquí solo lo específico de la galería */
 
+.contenido-pagina h2{
+    text-align: center;
+    font-size: 50px;
+    color: var(--color-rojo-oscuro);
+}
+.contenido-pagina p{
+    font-size: 1.4em;
+    text-align: center;
+   
+}
+
 .galeria-grid {
     display: grid;
     /* Crea columnas flexibles que tienen un mínimo de 300px y un máximo de 1fr (fracción del espacio disponible) */
@@ -52,26 +63,6 @@
     background-color: rgba(0, 0, 0, 0.9);
 }
 
-/* Cuando el lightbox está en modo zoom, permite el scroll para ver la imagen grande */
-.lightbox.zoomed {
-    padding-top: 0;
-    /* Habilita el scroll para poder moverse por la imagen ampliada */
-    overflow: auto;
-    /* Oculta el cursor estándar, ya que la imagen es "arrastrable" con el scroll */
-    cursor: grab;
-}
-
-/* Cursor que se muestra mientras el usuario está activamente arrastrando la imagen */
-.lightbox.zoomed.grabbing {
-    cursor: grabbing;
-}
-
-/* Oculta las flechas de navegación cuando la imagen está en modo zoom */
-.lightbox.zoomed .lightbox-prev,
-.lightbox.zoomed .lightbox-next {
-    display: none;
-}
-
 .lightbox.activo {
     display: flex; /* Usamos flex para centrar vertical y horizontalmente */
     align-items: center;
@@ -87,12 +78,6 @@
     animation-name: zoom;
     animation-duration: 0.6s;
     transition: transform 0.3s ease; /* Añade una transición suave al hacer zoom */
-}
-
-/* Cuando el lightbox está en modo zoom, la imagen rompe sus límites y crece */
-.lightbox.zoomed .lightbox-contenido {
-    max-width: none; /* Elimina el límite de ancho */
-    max-height: none; /* Elimina el límite de alto */
 }
 
 @keyframes zoom {
@@ -116,23 +101,6 @@
 .lightbox-cerrar:focus {
     color: #bbb;
     text-decoration: none;
-}
-
-/* Botón de Zoom (Lupa) */
-.lightbox-zoom {
-    position: fixed; /* Fijo para que no se desplace con el scroll del zoom */
-    top: 15px;
-    right: 85px; /* Lo posicionamos a la izquierda del botón de cerrar */
-    color: #f1f1f1;
-    font-size: 28px;
-    background: none;
-    border: none;
-    cursor: pointer;
-    transition: 0.3s;
-    z-index: 2001; /* Asegura que esté sobre la imagen */
-}
-.lightbox-zoom:hover {
-    color: #bbb;
 }
 
 .lightbox-caption {

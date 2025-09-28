@@ -22,8 +22,8 @@
 
 /* Párrafo de descripción (ahora funciona como subtítulo) */
 .contenido-pagina p {
-    font-size: 1.1em;
-    color: #777777; /* Un color más sutil para que parezca un subtítulo */
+    font-size: 1.3em;
+    color: #4f4f4f; /* Un color más sutil para que parezca un subtítulo */
     max-width: 750px; /* Evita que el texto se extienda demasiado en pantallas grandes */
     margin-left: auto;
     margin-right: auto;
@@ -31,12 +31,13 @@
 
 /* Contenedor del índice de personajes */
 .lista-personajes {
-    text-align: left;
-    margin: 2rem 0;
+    max-width: 1200px; /* Ancho máximo para hacerlo más compacto */
+    margin: 2rem auto; /* Centra el contenedor */
     border: 2px solid #5a2a2a; /* Borde sólido en lugar de punteado */
     border-radius: 8px;
     overflow: hidden; /* Importante para que el fondo del h2 respete los bordes redondeados */
     background-color: rgba(0, 0, 0, 0.205); /* Fondo semitransparente para el área de la lista */
+    text-align: left;
 }
 
 /* Título "Índice de Personajes" */
@@ -74,8 +75,9 @@
 .fichas-container {
     display: flex;
     flex-direction: column;
+    max-width: 1200px; /* Mismo ancho máximo que el índice */
+    margin: 3rem auto 0; /* Centra el contenedor */
     gap: 4rem; /* Más espacio entre fichas */
-    margin-top: 3rem;
 }
 
 .ficha-personaje {
@@ -117,7 +119,9 @@
     border-radius: 4px;
     font-size: 1rem;
 }
-
+.personaje-descripcion p{
+    font-size: 20px;
+}
 
 /*
 =================================================================

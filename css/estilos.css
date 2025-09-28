@@ -88,7 +88,7 @@ h1, h2 {
 /* --- Contenido Principal (Main) --- */
 main {
     padding: 2rem;
-    max-width: 1400px;
+    max-width: 1600px; /* Aumentamos el ancho máximo para aprovechar mejor el espacio en pantallas grandes */
     position: relative; /* Necesario para posicionar elementos hijos de forma absoluta */
     margin: 2rem auto;
 }
@@ -136,6 +136,7 @@ main {
     filter: sepia(0);
 }
 
+/* FOOTER */
 /* Estilos para páginas secundarias */
 
 
@@ -160,7 +161,7 @@ main {
 
 .redes a {
     color: var(--color-resaltado); /* Color bordó */
-    font-size: 2.2rem; /* Tamaño más grande */
+    font-size: 2.5rem; /* Tamaño más grande */
     transition: color 0.3s ease, transform 0.3s ease;
 }
 
@@ -170,7 +171,7 @@ main {
 }
 
 .legales {
-    font-size: 1rem; /* Tamaño más grande */
+    font-size: 1.3rem; /* Tamaño más grande */
     color: var(--color-resaltado); /* Color bordó */
     text-align: right;
 }
